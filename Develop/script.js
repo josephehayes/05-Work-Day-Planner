@@ -9,15 +9,42 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+
+  $('.time-block button').click((event) => {
+    let tar = event.target.parentElement;
+    let text = event.target.parentElement.getElementsByTagName('textarea')[0].value;
+    localStorage.setItem(tar.id, text)
+  });
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
+
+  const curHour = dayjs().hour();
+
+  $('.time-block').each(function() {
+    if ($(this).attr('data-hour') < curHour) {
+      $(this).addClass('past');
+    } else if ($(this).attr('data-hour') > curHour) {
+      $(this).addClass('future');
+    } else {
+      $(this).addClass('present');
+    }
+  });
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+
+  $('.time-block').each(function() {
+    $(this).children('textarea').val(localStorage.getItem($(this).attr('id')));
+  });
+  
   // TODO: Add code to display the current date in the header of the page.
+
+  $('#currentDay').text(dayjs().format('ddd, MMM D, YYYY h:mm A'))
+
 });

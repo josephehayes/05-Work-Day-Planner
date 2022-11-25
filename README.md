@@ -6,7 +6,10 @@ Simply click on the time block you'd like to create an entry for, and enter the 
 When you're ready, click the save button on the right side to save the entry.
 Each entry is stored locally and will persist through page reloads.
 
-
+(./Assets/Work-Day-Scheduler-SS)[!Work Day scheduler screenshot]
 
 
 ## Links
+
+Github Repo: https://github.com/josephehayes/05-Work-Day-Planner
+Live Site: https://josephehayes.github.io/05-Work-Day-Planner/
